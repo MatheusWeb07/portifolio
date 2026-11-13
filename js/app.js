@@ -14,6 +14,17 @@
   // --------------------------------------------------------------------------
   const PROJECTS_LIST = [
     {
+      id: 'anl-engenharia',
+      title: 'ANL Engenharia',
+      categoryFilter: 'web',
+      categoriaLabel: 'engenharia & consultoria',
+      tipoProjeto: 'Website Institucional & Soluções Técnicas',
+      badge: '{ Engenharia }',
+      date: '2026 / Concluído',
+      image: 'assets/anl-engenharia.jpg',
+      url: 'https://anlengenharia.vercel.app/'
+    },
+    {
       id: 'projeto-01',
       title: 'Monarch Superyachts',
       categoryFilter: 'web',
