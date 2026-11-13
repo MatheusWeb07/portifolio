@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matheus Felipe — Portfólio</title>
+  <meta name="description" content="Portfólio de desenvolvimento web e engenharia de software.">
+  <meta name="theme-color" content="#09090b">
+
+  <!-- Fonts: Inter & Plus Jakarta Sans (Clean Neo-Grotesk like Glinto & Code Makers) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ====================================================================
+       CUSTOM MAGNETIC CURSOR (MANTIDO COMO PEDIDO)
+       ==================================================================== -->
+  <div class="custom-cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="custom-cursor-ring" id="cursor-ring" aria-hidden="true">
+    <span class="cursor-label" id="cursor-label">VER</span>
+  </div>
+
+  <!-- ====================================================================
+       TOP FROSTED GLASS / WATER BAR (SEM LOGO E SEM NOME NO TOPO)
+       Abre abas separadas dentro do site: Início, Sobre, Serviços, Projetos, Contato
+       ==================================================================== -->
+  <header class="top-header" id="header">
+    <nav class="water-nav-bar" id="water-nav" aria-label="Navegação principal">
+      <div class="water-droplet" id="nav-droplet" aria-hidden="true"></div>
+
+      <button type="button" class="water-tab active" data-tab="inicio">Início</button>
+      <button type="button" class="water-tab" data-tab="sobre">Sobre</button>
+      <button type="button" class="water-tab" data-tab="servicos">Serviços</button>
+      <button type="button" class="water-tab" data-tab="projetos">Projetos</button>
+      <button type="button" class="water-tab" data-tab="contato">Contato</button>
+
+      <span class="water-divider" aria-hidden="true"></span>
+      <span class="water-clock" id="live-clock">13:30 UTC-3</span>
+    </nav>
+  </header>
+
+  <!-- Floating Glinto Contact Bubble (Bottom Right) -->
+  <button type="button" class="glinto-contact-float" data-open-tab="contato" data-cursor="CONTATO" aria-label="Ir para Contato">
+    <span>Contato</span>
+  </button>
+
+  <main id="main-stage">
+
+    <!-- ==================================================================
+         ABA 1: INÍCIO (HERO CODE MAKERS + SCROLL CENTRAL GLINTO COM FOTOS AO LADO)
+         ================================================================== -->
+    <div class="tab-view is-active" id="view-inicio" data-view="inicio">
+
+      <!-- HERO SECTION — EXATAMENTE NA COR E ESTÉTICA DA CODE MAKERS -->
+      <section class="cm-hero">
+        <div class="cm-hero-sky" aria-hidden="true"></div>
+        <div class="cm-hero-vignette" aria-hidden="true"></div>
+
+        <div class="cm-hero-inner">
+          <!-- Left Text (Code Makers positioning) -->
+          <div class="cm-hero-left">
+            <p class="cm-hero-lead">
+              Desenvolvimento web, sistemas e automação.<br>
+              Do conceito inicial ao projeto entregue com código limpo.
+            </p>
+          </div>
+
+          <!-- Center Sculptural Topographic Visual (Code Makers Red Contours) -->
+          <div class="cm-hero-centerpiece" aria-hidden="true">
+            <div class="cm-sphere-glow"></div>
+            <svg class="cm-topo-sculpture" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="cmLineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+                  <stop offset="35%" stop-color="#ff3b4e" stop-opacity="0.9"/>
+                  <stop offset="80%" stop-color="#b91c1c" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
+                </linearGradient>
+                <radialGradient id="cmCoreGlow" cx="42%" cy="48%" r="52%">
+                  <stop offset="0%" stop-color="#ff2a42" stop-opacity="0.75"/>
+                  <stop offset="55%" stop-color="#991b1b" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
+                </radialGradient>
+                <clipPath id="sphereClip">
+                  <circle cx="210" cy="210" r="168"/>
+                </clipPath>
+              </defs>
+              <circle cx="210" cy="210" r="168" fill="#090305"/>
+              <circle cx="210" cy="210" r="168" fill="url(#cmCoreGlow)"/>
+              <g clip-path="url(#sphereClip)" stroke="url(#cmLineGrad)" stroke-width="1.6">
+                <path d="M20 270 C110 210, 210 190, 410 250"/>
+                <path d="M20 256 C115 196, 215 178, 410 238"/>
+                <path d="M20 242 C120 182, 220 166, 410 226"/>
+                <path d="M20 228 C125 168, 225 154, 410 214" stroke-width="2.4"/>
+                <path d="M20 214 C130 154, 230 142, 410 202" stroke-width="2.8"/>
+                <path d="M20 200 C135 140, 235 130, 410 190"/>
+                <path d="M20 186 C140 126, 240 118, 410 178"/>
+                <path d="M20 172 C145 112, 245 106, 410 166"/>
+                <path d="M20 158 C150 98, 250 94, 410 154"/>
+                <path d="M20 144 C155 84, 255 82, 410 142"/>
+                <path d="M20 130 C160 70, 260 70, 410 130"/>
+                <path d="M20 116 C165 56, 265 58, 410 118"/>
+                <path d="M20 102 C170 42, 270 46, 410 106"/>
+                <path d="M20 284 C115 230, 215 210, 410 264"/>
+                <path d="M20 298 C120 250, 220 230, 410 278"/>
+                <path d="M20 312 C125 270, 225 250, 410 292"/>
+                <path d="M20 326 C130 290, 230 270, 410 306"/>
+                <ellipse cx="275" cy="115" rx="68" ry="38" transform="rotate(-18 275 115)" stroke-opacity="0.65"/>
+                <ellipse cx="275" cy="115" rx="46" ry="25" transform="rotate(-18 275 115)" stroke-opacity="0.75"/>
+                <ellipse cx="275" cy="115" rx="24" ry="13" transform="rotate(-18 275 115)" stroke-opacity="0.85"/>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Right Floating Glass Card (Code Makers positioning) -->
+          <div class="cm-hero-right">
+            <div class="cm-glass-box">
+              <span class="cm-box-kicker">PORTFÓLIO &amp; PROJETOS</span>
+              <p class="cm-box-text">
+                Da ideia à estrutura.<br>
+                Do código ao projeto entregue.
+              </p>
+              <button type="button" class="cm-box-cta" data-open-tab="projetos" data-cursor="PROJETOS">
+                <span>VER PROJETOS</span>
+                <span class="cm-box-arrow">↗</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Watermark Typography (Code Makers style) -->
+        <div class="cm-hero-watermark" aria-hidden="true">
+          CODE &amp; DESIGN
+        </div>
+      </section>
+
+      <!-- ================================================================
+           FAIXA MARQUEE EM MOVIMENTO (IGUAL AO DA ANL — DIREITA PARA ESQUERDA
+           EM FONTE GRANDE, SEPARANDO A HERO DO EXPLORAR)
+           ================================================================ -->
+      <div class="anl-marquee" aria-hidden="true">
+        <div class="anl-marquee-track">
+          <!-- Bloco 1 -->
+          <span class="anl-marquee-item">
+            ENGENHARIA DE SOFTWARE
+            <span class="anl-marquee-star">✦</span>
+          </span>
+          <span class="anl-marquee-item">
+            DESENVOLVIMENTO WEB
+            <span class="anl-marquee-star">✦</span>
+          </span>
+          <span class="anl-marquee-item">
+            PYTHON &amp; AUTOMAÇÃO
+            <span class="anl-marquee-star">✦</span>
+          </span>
+          <span class="anl-marquee-item">
+            JAVASCRIPT &amp; REACT
+            <span class="anl-marquee-star">✦</span>
+          </span>
+          <span class="anl-marquee-item">
+            UI / UX DESIGN
+            <span class="anl-marquee-star">✦</span>
+          </span>
+          <span class="anl-marquee-item">
+            SISTEMAS SOB MEDIDA
+            <span class="anl-marquee-star">✦</span>
+          </span>
+          <span class="anl-marquee-item">
+            CÓDIGO LIMPO
+            <span class="anl-marquee-star">✦</span>
+          </span>
+          <span class="anl-marquee-item">
+            ALTA PERFORMANCE
+            <span class="anl-marquee-star">✦</span>
+          </span>
+
+          <!-- Bloco 2 (Duplicado para loop infinito perfeito -50%) -->
+          <span class="anl-marquee-item">
+            ENGENHARIA DE SOFTWARE
+            <span class="anl-marquee-star">✦</span>
+          </span>
+          <span class="anl-marquee-item">
+            DESENVOLVIMENTO WEB
+            <span class="anl-marquee-star">✦</span>
+          </span>
+          <span class="anl-marquee-item">
+            PYTHON &amp; AUTOMAÇÃO
+            <span class="anl-marquee-star">✦</span>
+          </span>
+          <span class="anl-marquee-item">
+            JAVASCRIPT &amp; REACT
+            <span class="anl-marquee-star">✦</span>
+          </span>
+          <span class="anl-marquee-item">
+            UI / UX DESIGN
+            <span class="anl-marquee-star">✦</span>
+          </span>
+          <span class="anl-marquee-item">
+            SISTEMAS SOB MEDIDA
+            <span class="anl-marquee-star">✦</span>
+          </span>
+          <span class="anl-marquee-item">
+            CÓDIGO LIMPO
+            <span class="anl-marquee-star">✦</span>
+          </span>
+          <span class="anl-marquee-item">
+            ALTA PERFORMANCE
+            <span class="anl-marquee-star">✦</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- ================================================================
+           GLINTO INFO SECTION — INFORMAÇÕES NO MEIO E FOTOS AO LADO
+           Alinhado em 3 colunas retas e com animações fluidas de entrada/hover
+           ================================================================ -->
+      <section class="glinto-scroll-showcase" id="glinto-scroll">
+        <div class="glinto-scroll-wrapper">
+
+          <!-- Top Bar of Section (Aligned Left & Right, No Float / No Overlap) -->
+          <div class="glinto-section-topbar" data-animate-topbar>
+            <span class="glinto-side-hint">explorar <span class="hint-arrow">↓</span></span>
+            <button type="button" class="glinto-view-all-btn" data-open-tab="projetos" data-cursor="PROJETOS">
+              ver todos os projetos →
+            </button>
+          </div>
+
+          <!-- 3 LINHAS ALINHADAS E ANIMADAS: [FOTO ESQUERDA] — [INFORMAÇÃO NO MEIO] — [FOTO DIREITA] -->
+          <div class="glinto-rows-list">
+
+            <!-- Linha 0: Engenharia -->
+            <div class="glinto-info-row" id="glinto-row-0" data-scroll-step="0">
+              <article class="glinto-side-photo anim-left" data-open-tab="projetos" data-cursor="VER">
+                <div class="glinto-photo-thumb">
+                  <div class="glinto-photo-tag">{ Engenharia }</div>
+                  <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Projeto de Sistema Web" width="420" height="280">
+                </div>
+                <div class="glinto-photo-caption">
+                  <span>Sistemas &amp; Dashboards</span>
+                  <span class="caption-arrow">↗</span>
+                </div>
+              </article>
+
+              <div class="glinto-center-info">
+                <span class="glinto-step-sub anim-fade" style="--d: 0.05s">Build it</span>
+                <h2 class="glinto-step-title">
+                  <span class="mask-word"><span style="--d: 0.1s">Engenharia</span></span>
+                </h2>
+                <ul class="glinto-step-list">
+                  <li style="--d: 0.18s">Desenvolvimento Web</li>
+                  <li style="--d: 0.24s">Aplicações &amp; Sistemas</li>
+                  <li style="--d: 0.30s">Integrações &amp; APIs</li>
+                  <li style="--d: 0.36s">Manutenção &amp; Escala</li>
+                </ul>
+                <p class="glinto-step-desc anim-fade" style="--d: 0.42s">
+                  Construímos a estrutura completa do seu projeto com foco em estabilidade, organização de código e facilidade de uso em qualquer tela.
+                </p>
+              </div>
+
+              <article class="glinto-side-photo anim-right" data-open-tab="projetos" data-cursor="VER">
+                <div class="glinto-photo-thumb">
+                  <div class="glinto-photo-tag">{ Web }</div>
+                  <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=900&q=80" alt="Arquitetura Front-End" width="420" height="280">
+                </div>
+                <div class="glinto-photo-caption">
+                  <span>Plataformas Digitais</span>
+                  <span class="caption-arrow">↗</span>
+                </div>
+              </article>
+            </div>
+
+            <!-- Linha 1: Linguagens -->
+            <div class="glinto-info-row" id="glinto-row-1" data-scroll-step="1">
+              <article class="glinto-side-photo anim-left" data-open-tab="servicos" data-cursor="STACK">
+                <div class="glinto-photo-thumb">
+                  <div class="glinto-photo-tag">{ Python &amp; JS }</div>
+                  <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80" alt="Código Python e JavaScript" width="420" height="280">
+                </div>
+                <div class="glinto-photo-caption">
+                  <span>Código Limpo &amp; Automação</span>
+                  <span class="caption-arrow">↗</span>
+                </div>
+              </article>
+
+              <div class="glinto-center-info">
+                <span class="glinto-step-sub anim-fade" style="--d: 0.05s">Code it</span>
+                <h2 class="glinto-step-title">
+                  <span class="mask-word"><span style="--d: 0.1s">Linguagens</span></span>
+                </h2>
+                <ul class="glinto-step-list">
+                  <li style="--d: 0.18s">JavaScript &amp; TypeScript</li>
+                  <li style="--d: 0.24s">Python &amp; Automação</li>
+                  <li style="--d: 0.30s">HTML5 &amp; CSS3</li>
+                  <li style="--d: 0.36s">React &amp; Node.js</li>
+                </ul>
+                <p class="glinto-step-desc anim-fade" style="--d: 0.42s">
+                  Domínio das principais tecnologias modernas para criar desde páginas rápidas até sistemas personalizados e scripts automatizados.
+                </p>
+              </div>
+
+              <article class="glinto-side-photo anim-right" data-open-tab="servicos" data-cursor="STACK">
+                <div class="glinto-photo-thumb">
+                  <div class="glinto-photo-tag">{ Full-Stack }</div>
+                  <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80" alt="Desenvolvimento Web" width="420" height="280">
+                </div>
+                <div class="glinto-photo-caption">
+                  <span>Estrutura HTML, CSS &amp; React</span>
+                  <span class="caption-arrow">↗</span>
+                </div>
+              </article>
+            </div>
+
+            <!-- Linha 2: Design -->
+            <div class="glinto-info-row" id="glinto-row-2" data-scroll-step="2">
+              <article class="glinto-side-photo anim-left" data-open-tab="projetos" data-cursor="DESIGN">
+                <div class="glinto-photo-thumb">
+                  <div class="glinto-photo-tag">{ UI / UX }</div>
+                  <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=900&q=80" alt="Design de Interface" width="420" height="280">
+                </div>
+                <div class="glinto-photo-caption">
+                  <span>Direção Visual Minimalista</span>
+                  <span class="caption-arrow">↗</span>
+                </div>
+              </article>
+
+              <div class="glinto-center-info">
+                <span class="glinto-step-sub anim-fade" style="--d: 0.05s">Dress it</span>
+                <h2 class="glinto-step-title">
+                  <span class="mask-word"><span style="--d: 0.1s">Design</span></span>
+                </h2>
+                <ul class="glinto-step-list">
+                  <li style="--d: 0.18s">UI / UX Design</li>
+                  <li style="--d: 0.24s">Identidade Visual</li>
+                  <li style="--d: 0.30s">Layouts Responsivos</li>
+                  <li style="--d: 0.36s">Prototipação Limpa</li>
+                </ul>
+                <p class="glinto-step-desc anim-fade" style="--d: 0.42s">
+                  Interfaces minimalistas, diretas e sem excesso de informação, desenhadas para valorizar a marca e facilitar a navegação.
+                </p>
+              </div>
+
+              <article class="glinto-side-photo anim-right" data-open-tab="projetos" data-cursor="VER">
+                <div class="glinto-photo-thumb">
+                  <div class="glinto-photo-tag">{ Identidade }</div>
+                  <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80" alt="Identidade Digital" width="420" height="280">
+                </div>
+                <div class="glinto-photo-caption">
+                  <span>Experiências sob Medida</span>
+                  <span class="caption-arrow">↗</span>
+                </div>
+              </article>
+            </div>
+
+          </div>
+
+          <!-- GLINTO BOTTOM FROSTED WATER BAR (FIXA NO FINAL DA SEÇÃO, SEM SOBREPOR) -->
+          <div class="glinto-bottom-bar">
+            <button type="button" class="glinto-bar-item is-active" data-jump-step="0">
+              <strong>Engenharia</strong>
+              <span>Build it</span>
+            </button>
+            <button type="button" class="glinto-bar-item" data-jump-step="1">
+              <strong>Linguagens</strong>
+              <span>Code it</span>
+            </button>
+            <button type="button" class="glinto-bar-item" data-jump-step="2">
+              <strong>Design</strong>
+              <span>Dress it</span>
+            </button>
+            <button type="button" class="glinto-bar-item" data-open-tab="projetos">
+              <strong>Projetos</strong>
+              <span>See works →</span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ==================================================================
+         ABA 2: SOBRE (SEPARADA DENTRO DO SITE — ESTILO GLINTO /ABOUT)
+         ================================================================== -->
+    <div class="tab-view" id="view-sobre" data-view="sobre" hidden>
+      <section class="glinto-page-section">
+        <div class="glinto-container-narrow">
+          <span class="glinto-kicker">Sobre</span>
+          <h1 class="glinto-page-title">
+            Estúdio digital para<br>
+            Identidade · Visual · e Código.
+          </h1>
+          <p class="glinto-page-lead">
+            Sou Matheus Felipe, desenvolvedor focado em criar sites, sistemas e interfaces limpas. Uno design minimalista e engenharia de software para entregar projetos rápidos, bem estruturados e diretos ao ponto.
+          </p>
+
+          <div class="glinto-about-columns">
+            <div class="glinto-about-col">
+              <span class="about-num">01</span>
+              <h3>Visão &amp; Clareza</h3>
+              <p>Sem excessos visuais ou elementos genéricos. Cada página é desenhada para transmitir confiança e facilitar a leitura do usuário.</p>
+            </div>
+
+            <div class="glinto-about-col">
+              <span class="about-num">02</span>
+              <h3>Código Autoral</h3>
+              <p>Desenvolvimento sólido utilizando Python, JavaScript, HTML e CSS, garantindo que o projeto funcione com fluidez tanto no computador quanto no celular.</p>
+            </div>
+
+            <div class="glinto-about-col">
+              <span class="about-num">03</span>
+              <h3>Entrega Direta</h3>
+              <p>Acompanhamento próximo do início à publicação, estruturando exatamente o que o seu negócio precisa para crescer no digital.</p>
+            </div>
+          </div>
+
+          <div class="glinto-page-cta-row">
+            <button type="button" class="glinto-pill-btn" data-open-tab="servicos">Ver linguagens e serviços →</button>
+            <button type="button" class="glinto-pill-btn secondary" data-open-tab="projetos">Explorar projetos →</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================================================================
+         ABA 3: SERVIÇOS (SEPARADA — LINGUAGENS: PYTHON, JS, HTML, CSS ETC.)
+         ================================================================== -->
+    <div class="tab-view" id="view-servicos" data-view="servicos" hidden>
+      <section class="glinto-page-section">
+        <div class="glinto-container-narrow">
+          <span class="glinto-tag-box">serviços &amp; stack</span>
+          <h1 class="glinto-page-title">
+            Tudo o que seu projeto precisa,<br>
+            do front-end ao back-end.
+          </h1>
+          <p class="glinto-page-lead">
+            Desenvolvimento completo com domínio das principais linguagens do mercado para construir sites institucionais, landing pages, automações e aplicações web.
+          </p>
+        </div>
+
+        <div class="glinto-container">
+          <div class="glinto-services-grid">
+
+            <!-- Python -->
+            <article class="glinto-service-card">
+              <div class="srv-top">
+                <span class="srv-sub">Back-End &amp; Automação</span>
+                <span class="srv-badge">{ Python }</span>
+              </div>
+              <h2>Python</h2>
+              <p>Desenvolvimento de scripts de automação, integração de APIs, processamento de dados e lógica de servidor rápida e confiável.</p>
+              <ul class="srv-list">
+                <li>Automação de processos e tarefas</li>
+                <li>APIs REST &amp; Back-end estruturado</li>
+                <li>Integração com bancos de dados</li>
+                <li>Bots e ferramentas personalizadas</li>
+              </ul>
+            </article>
+
+            <!-- JavaScript / TypeScript -->
+            <article class="glinto-service-card">
+              <div class="srv-top">
+                <span class="srv-sub">Interatividade &amp; Web Apps</span>
+                <span class="srv-badge">{ JavaScript }</span>
+              </div>
+              <h2>JavaScript &amp; React</h2>
+              <p>Aplicações dinâmicas no navegador e no servidor. Interfaces reativas, animações suaves de rolagem e painéis completos.</p>
+              <ul class="srv-list">
+                <li>JavaScript (ES6+) &amp; TypeScript</li>
+                <li>React.js &amp; Next.js</li>
+                <li>Node.js para sistemas web</li>
+                <li>Consumo de APIs em tempo real</li>
+              </ul>
+            </article>
+
+            <!-- HTML5 & CSS3 -->
+            <article class="glinto-service-card">
+              <div class="srv-top">
+                <span class="srv-sub">Estrutura &amp; Estética</span>
+                <span class="srv-badge">{ HTML &amp; CSS }</span>
+              </div>
+              <h2>HTML5 &amp; CSS3</h2>
+              <p>Construção visual fiel, semântica limpa para motores de busca (SEO) e layouts responsivos que se adaptam a qualquer tela.</p>
+              <ul class="srv-list">
+                <li>Arquitetura semântica e acessível</li>
+                <li>CSS3 moderno &amp; Tailwind CSS</li>
+                <li>Design responsivo (Mobile &amp; Desktop)</li>
+                <li>Transições fluidas e acabamento limpo</li>
+              </ul>
+            </article>
+
+            <!-- Banco de Dados & Infra -->
+            <article class="glinto-service-card">
+              <div class="srv-top">
+                <span class="srv-sub">Dados &amp; Publicação</span>
+                <span class="srv-badge">{ Sistemas }</span>
+              </div>
+              <h2>Banco de Dados &amp; Deploy</h2>
+              <p>Configuração completa de hospedagem, domínio, banco de dados e autenticação para colocar seu projeto no ar com segurança.</p>
+              <ul class="srv-list">
+                <li>Supabase, PostgreSQL &amp; SQLite</li>
+                <li>Versionamento com Git &amp; GitHub</li>
+                <li>Publicação na Vercel &amp; Nuvem</li>
+                <li>Otimização de velocidade</li>
+              </ul>
+            </article>
+
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================================================================
+         ABA 4: PROJETOS (SEPARADA — SEGUINDO A IMAGEM ANEXADA DA GLINTO,
+         MAIS COMPACTA, LIMPA E SEM IFRAMES AO VIVO)
+         ================================================================== -->
+    <div class="tab-view" id="view-projetos" data-view="projetos" hidden>
+      <section class="glinto-works-section">
+        <div class="glinto-works-container">
+
+          <!-- Top Works Header & Filter (Exact Glinto /works layout) -->
+          <div class="glinto-works-header">
+            <h1 class="glinto-works-title">Projetos</h1>
+
+            <div class="glinto-works-filters" role="tablist" aria-label="Filtrar projetos por categoria">
+              <button type="button" class="glinto-filter-btn active" data-work-filter="all">Todos</button>
+              <button type="button" class="glinto-filter-btn" data-work-filter="web">Web &amp; Landing Pages</button>
+              <button type="button" class="glinto-filter-btn" data-work-filter="sistemas">Sistemas &amp; SaaS</button>
+              <button type="button" class="glinto-filter-btn" data-work-filter="design">Design &amp; Marca</button>
+            </div>
+          </div>
+
+          <!-- 2-COLUMN CLEAN GLINTO GRID (EXACTLY LIKE ATTACHED IMAGE, SMALLER & CLEAN) -->
+          <div class="glinto-works-grid" id="glinto-works-grid">
+            <!-- Populated by PROJECTS_LIST in js/app.js so adding/replacing projects is instant -->
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================================================================
+         ABA 5: CONTATO (SEPARADA — EMAIL: matheusfelipe16felipe@gmail.com)
+         ================================================================== -->
+    <div class="tab-view" id="view-contato" data-view="contato" hidden>
+      <section class="glinto-page-section">
+        <div class="glinto-container-narrow">
+          <span class="glinto-kicker">Contato</span>
+          <h1 class="glinto-page-title">
+            Vamos conversar sobre<br>
+            o seu próximo projeto.
+          </h1>
+          <p class="glinto-page-lead">
+            Entre em contato diretamente por e-mail ou WhatsApp para orçamentos, parcerias ou dúvidas técnicas.
+          </p>
+
+          <div class="glinto-contact-cards">
+            <!-- Email Card -->
+            <div class="glinto-contact-card">
+              <span class="contact-label">E-MAIL DIRETO</span>
+              <a href="mailto:matheusfelipe16felipe@gmail.com" class="contact-value" data-cursor="ENVIAR">
+                matheusfelipe16felipe@gmail.com
+              </a>
+              <div class="contact-card-actions">
+                <a href="mailto:matheusfelipe16felipe@gmail.com" class="glinto-small-btn">Abrir E-mail ↗</a>
+                <button type="button" class="glinto-small-btn ghost" id="btn-copy-email">Copiar E-mail</button>
+              </div>
+            </div>
+
+            <!-- WhatsApp Card -->
+            <div class="glinto-contact-card">
+              <span class="contact-label">WHATSAPP</span>
+              <a href="https://wa.me/5531971880711?text=Ol%C3%A1%20Matheus!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="contact-value" data-cursor="WHATSAPP">
+                +55 (31) 97188-0711
+              </a>
+              <div class="contact-card-actions">
+                <a href="https://wa.me/5531971880711?text=Ol%C3%A1%20Matheus!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="glinto-small-btn">Chamar no WhatsApp ↗</a>
+                <button type="button" class="glinto-small-btn ghost" id="btn-copy-phone">Copiar Número</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Minimal Clean Footer -->
+  <footer class="glinto-footer">
+    <div class="glinto-footer-inner">
+      <div class="footer-left">
+        <span>© 2026 Matheus Felipe</span>
+        <span class="footer-dot">·</span>
+        <a href="mailto:matheusfelipe16felipe@gmail.com">matheusfelipe16felipe@gmail.com</a>
+      </div>
+
+      <div class="footer-right">
+        <button type="button" data-open-tab="inicio">Início</button>
+        <button type="button" data-open-tab="sobre">Sobre</button>
+        <button type="button" data-open-tab="servicos">Serviços</button>
+        <button type="button" data-open-tab="projetos">Projetos</button>
+        <button type="button" data-open-tab="contato">Contato</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Subtle Toast -->
+  <div class="water-toast" id="water-toast" role="status" aria-live="polite"></div>
+
+  <!-- Scripts: Lenis Smooth Scroll + App -->
+  <script src="js/lenis.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
