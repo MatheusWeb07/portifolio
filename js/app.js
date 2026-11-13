@@ -31,9 +31,9 @@
       categoriaLabel: 'luxo náutico',
       tipoProjeto: 'Website Institucional & Catálogo',
       badge: '{ Engenharia }',
-      date: '2026 / 2 meses',
+      date: '2026 / Concluído',
       image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=900&q=80',
-      url: 'sites/monarch/index.html'
+      url: 'https://monarch-seven-wine.vercel.app/'
     },
     {
       id: 'projeto-02',
@@ -42,9 +42,9 @@
       categoriaLabel: 'telecomunicações',
       tipoProjeto: 'Plataforma Web & Sistema Integrado',
       badge: '{ Engenharia }',
-      date: '2026 / 3+ meses',
+      date: '2026 / Concluído',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80',
-      url: 'sites/nexa/index.html'
+      url: 'https://nexa-mauve-alpha-90.vercel.app/'
     },
     {
       id: 'projeto-03',
@@ -53,9 +53,9 @@
       categoriaLabel: 'imobiliário',
       tipoProjeto: 'Portal de Imóveis & Concierge',
       badge: '{ Web }',
-      date: '2026 / 2 meses',
+      date: '2026 / Concluído',
       image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80',
-      url: 'sites/vanice/index.html'
+      url: 'https://vanice-five.vercel.app/'
     },
     {
       id: 'projeto-04',
