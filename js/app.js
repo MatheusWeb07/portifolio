@@ -32,7 +32,7 @@
       tipoProjeto: 'Website Institucional & Catálogo',
       badge: '{ Engenharia }',
       date: '2026 / Concluído',
-      image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=900&q=80',
+      image: 'assets/monarch.jpg',
       url: 'https://monarch-seven-wine.vercel.app/'
     },
     {
@@ -43,7 +43,7 @@
       tipoProjeto: 'Plataforma Web & Sistema Integrado',
       badge: '{ Engenharia }',
       date: '2026 / Concluído',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80',
+      image: 'assets/nexa.jpg',
       url: 'https://nexa-mauve-alpha-90.vercel.app/'
     },
     {
@@ -54,7 +54,7 @@
       tipoProjeto: 'Portal de Imóveis & Concierge',
       badge: '{ Web }',
       date: '2026 / Concluído',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80',
+      image: 'assets/vanice.png',
       url: 'https://vanice-five.vercel.app/'
     },
     {
@@ -65,7 +65,7 @@
       tipoProjeto: 'Aplicação Web & Painel de Gestão',
       badge: '{ Python & JS }',
       date: '2026 / 3+ meses',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80',
+      image: 'assets/prospectly.png',
       url: 'https://prospectly-tau.vercel.app/'
     }
   ];
