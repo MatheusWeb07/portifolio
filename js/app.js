@@ -36,7 +36,7 @@
       tipoProjeto: 'Website Institucional & Soluções Técnicas',
       summary: 'Portal corporativo de alta conversão com animações suaves, diagramas técnicos interativos e foco em geração de orçamentos.',
       stack: ['React', 'Tailwind', 'Framer Motion', 'Lenis'],
-      badge: '{ Engenharia }',
+      badge: '{ Em Destaque }',
       year: '2026',
       date: '2026 / Concluído',
       image: 'assets/anl-engenharia.jpg',
