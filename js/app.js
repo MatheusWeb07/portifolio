@@ -9,17 +9,20 @@
   'use strict';
 
   // --------------------------------------------------------------------------
-  // 1. LISTA DE PROJETOS (FORMATO EXATO DO PRINT ANEXADO DA GLINTO)
-  //    Pronta para receber os projetos reais que você indicar
+  // 1. LISTA DE PROJETOS (DADOS REAIS — USADOS NA HOME E NA ABA PROJETOS)
   // --------------------------------------------------------------------------
   const PROJECTS_LIST = [
     {
       id: 'anl-engenharia',
       title: 'ANL Engenharia',
       categoryFilter: 'web',
-      categoriaLabel: 'engenharia & consultoria',
+      categories: ['web', 'design'],
+      categoriaLabel: 'Engenharia & Consultoria',
       tipoProjeto: 'Website Institucional & Soluções Técnicas',
+      summary: 'Portal corporativo de alta conversão com animações suaves, diagramas técnicos interativos e foco em geração de orçamentos.',
+      stack: ['React', 'Tailwind', 'Framer Motion', 'Lenis'],
       badge: '{ Engenharia }',
+      year: '2026',
       date: '2026 / Concluído',
       image: 'assets/anl-engenharia.jpg',
       url: 'https://anlengenharia.vercel.app/'
@@ -28,9 +31,13 @@
       id: 'projeto-01',
       title: 'Monarch Superyachts',
       categoryFilter: 'web',
-      categoriaLabel: 'luxo náutico',
-      tipoProjeto: 'Website Institucional & Catálogo',
-      badge: '{ Engenharia }',
+      categories: ['web', 'design'],
+      categoriaLabel: 'Luxo Náutico',
+      tipoProjeto: 'Website Editorial & Experiência Visual',
+      summary: 'Experiência editorial imersiva para estaleiro de superiates com tipografia de luxo, parallax contínuo e scroll Lenis 1.1.18.',
+      stack: ['HTML5', 'CSS3', 'JavaScript', 'Lenis'],
+      badge: '{ Editorial }',
+      year: '2026',
       date: '2026 / Concluído',
       image: 'assets/monarch.jpg',
       url: 'https://monarch-seven-wine.vercel.app/'
@@ -39,9 +46,13 @@
       id: 'projeto-02',
       title: 'Nexa Web',
       categoryFilter: 'sistemas',
-      categoriaLabel: 'telecomunicações',
-      tipoProjeto: 'Plataforma Web & Sistema Integrado',
+      categories: ['sistemas', 'web'],
+      categoriaLabel: 'Telecomunicações',
+      tipoProjeto: 'Plataforma Web & Consulta CEP',
+      summary: 'Plataforma de fibra óptica com hero espacial de partículas, arquitetura modular e consulta dinâmica de cobertura.',
+      stack: ['JavaScript', 'Canvas FX', 'CSS3', 'API CEP'],
       badge: '{ Engenharia }',
+      year: '2026',
       date: '2026 / Concluído',
       image: 'assets/nexa.jpg',
       url: 'https://nexa-mauve-alpha-90.vercel.app/'
@@ -50,9 +61,13 @@
       id: 'projeto-03',
       title: 'Vanice Estates',
       categoryFilter: 'web',
-      categoriaLabel: 'imobiliário',
-      tipoProjeto: 'Portal de Imóveis & Concierge',
-      badge: '{ Web }',
+      categories: ['web', 'design'],
+      categoriaLabel: 'Imobiliário High-End',
+      tipoProjeto: 'Portal de Imóveis & Coleção Privada',
+      summary: 'Vitrine minimalista para residências de exceção no Rio de Janeiro, com direção de arte escura e navegação curada.',
+      stack: ['HTML5', 'CSS3', 'JavaScript', 'UI Design'],
+      badge: '{ Design }',
+      year: '2026',
       date: '2026 / Concluído',
       image: 'assets/vanice.png',
       url: 'https://vanice-five.vercel.app/'
@@ -61,36 +76,95 @@
       id: 'projeto-04',
       title: 'Prospectly SaaS',
       categoryFilter: 'sistemas',
-      categoriaLabel: 'b2b & automação',
-      tipoProjeto: 'Aplicação Web & Painel de Gestão',
+      categories: ['sistemas'],
+      categoriaLabel: 'B2B & Automação',
+      tipoProjeto: 'SaaS & Motor de Prospecção',
+      summary: 'Suite para agências analisarem estabelecimentos no Google Maps e gerarem páginas de demonstração em segundos.',
+      stack: ['Python', 'JavaScript', 'Maps API', 'SaaS'],
       badge: '{ Python & JS }',
-      date: '2026 / 3+ meses',
+      year: '2026',
+      date: '2026 / Concluído',
       image: 'assets/prospectly.png',
       url: 'https://prospectly-tau.vercel.app/'
     }
   ];
 
   // --------------------------------------------------------------------------
-  // 2. LENIS SMOOTH SCROLL ENGINE (CONFIGURAÇÃO EXATA DO PROJETO ANL — SUPER FLUIDO)
+  // 2. LENIS SMOOTH SCROLL ENGINE (LENIS@1.1.18 IDÊNTICO AO MONARCH)
   // --------------------------------------------------------------------------
   let lenis = null;
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const scrollProgressEl = document.getElementById('aw-scroll-progress');
 
-  if (typeof Lenis !== 'undefined' && !prefersReducedMotion) {
+  if (typeof Lenis !== 'undefined') {
     lenis = new Lenis({
-      duration: 0.65,
-      smoothWheel: true,
-      wheelMultiplier: 1.15,
-      touchMultiplier: 1.5,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+      duration: 1.25,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true
     });
+    if (document.getElementById('aw-preloader')) {
+      lenis.stop();
+    }
 
-    function raf(time) {
-      lenis.raf(time);
+    function raf(now) {
       requestAnimationFrame(raf);
+      lenis.raf(now);
+
+      if (scrollProgressEl) {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = maxScroll > 0 ? Math.min(100, Math.max(0, (window.scrollY / maxScroll) * 100)) : 0;
+        scrollProgressEl.style.width = pct.toFixed(2) + '%';
+      }
     }
     requestAnimationFrame(raf);
   }
+
+  // --------------------------------------------------------------------------
+  // 2B. PRELOADER SPLIT-CURTAIN ESTILO AWWWARDS / MONARCH
+  // --------------------------------------------------------------------------
+  (function initPreloader() {
+    const preloader = document.getElementById('aw-preloader');
+    if (!preloader) return;
+    const bar = document.getElementById('aw-pre-bar');
+    const count = document.getElementById('aw-pre-count');
+    let loaded = document.readyState === 'complete';
+    if (!loaded) window.addEventListener('load', () => { loaded = true; });
+    setTimeout(() => { loaded = true; }, 1400);
+
+    const t0 = performance.now();
+    let shown = 0;
+
+    function step() {
+      const target = loaded ? 100 : 88;
+      const elapsed = Math.min(1, (performance.now() - t0) / 1150);
+      shown = Math.min(shown + (target - shown) * 0.12, elapsed * 100);
+      if (loaded && elapsed >= 1) shown = 100;
+
+      if (bar) bar.style.width = shown.toFixed(1) + '%';
+      if (count) count.textContent = String(Math.round(shown)).padStart(3, '0');
+
+      if (shown < 99.5) {
+        requestAnimationFrame(step);
+        return;
+      }
+
+      if (bar) bar.style.width = '100%';
+      if (count) count.textContent = '100';
+
+      setTimeout(() => {
+        preloader.classList.add('done');
+        document.body.classList.remove('is-loading');
+        if (lenis) {
+          lenis.start();
+          lenis.resize();
+        }
+        window.dispatchEvent(new CustomEvent('pf:preloaded'));
+        setTimeout(() => {
+          if (preloader.parentNode) preloader.remove();
+        }, 1250);
+      }, 160);
+    }
+    requestAnimationFrame(step);
+  })();
 
   // --------------------------------------------------------------------------
   // 3. BARRA EM VIDRO FOSCO/ÁGUA E SISTEMA DE ABAS SEPARADAS DENTRO DO SITE
@@ -131,6 +205,7 @@
     });
 
     updateDropletToActive();
+    window.dispatchEvent(new CustomEvent('pf:tabchange', { detail: tabName }));
 
     if (lenis) {
       lenis.scrollTo(0, { immediate: true });
@@ -151,11 +226,11 @@
     waterNav.addEventListener('mouseleave', updateDropletToActive);
   }
 
-  document.querySelectorAll('[data-open-tab]').forEach((trigger) => {
-    trigger.addEventListener('click', () => {
-      const targetTab = trigger.getAttribute('data-open-tab');
-      if (targetTab) switchSiteTab(targetTab);
-    });
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest && e.target.closest('[data-open-tab]');
+    if (!trigger) return;
+    const targetTab = trigger.getAttribute('data-open-tab');
+    if (targetTab) switchSiteTab(targetTab);
   });
 
   window.addEventListener('resize', updateDropletToActive, { passive: true });
@@ -163,105 +238,7 @@
   setTimeout(updateDropletToActive, 120);
 
   // --------------------------------------------------------------------------
-  // 4. GLINTO INFO ROWS (ANIMAÇÕES DE ENTRADA ESTILO ANL + BARRA INFERIOR)
-  // --------------------------------------------------------------------------
-  const streamSteps = document.querySelectorAll('[data-scroll-step]');
-  const bottomBarItems = document.querySelectorAll('[data-jump-step]');
-
-  function setActiveGlintoStep(stepIndex) {
-    bottomBarItems.forEach((item) => {
-      const match = Number(item.getAttribute('data-jump-step')) === stepIndex;
-      item.classList.toggle('is-active', match);
-    });
-  }
-
-  if ('IntersectionObserver' in window && streamSteps.length > 0) {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            const idx = Number(entry.target.getAttribute('data-scroll-step'));
-            setActiveGlintoStep(idx);
-          } else if (entry.intersectionRatio === 0) {
-            entry.target.classList.remove('in-view');
-          }
-        });
-      },
-      {
-        threshold: [0, 0.16],
-        rootMargin: '0px 0px -6% 0px'
-      }
-    );
-
-    streamSteps.forEach((stepEl) => revealObserver.observe(stepEl));
-  } else {
-    streamSteps.forEach((stepEl) => stepEl.classList.add('in-view'));
-  }
-
-  bottomBarItems.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const idx = Number(btn.getAttribute('data-jump-step'));
-      const targetStep = document.querySelector(`[data-scroll-step="${idx}"]`);
-      if (targetStep) {
-        targetStep.classList.add('in-view');
-        setActiveGlintoStep(idx);
-        if (lenis) {
-          lenis.scrollTo(targetStep, { offset: -100, duration: 1.2 });
-        } else {
-          targetStep.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    });
-  });
-
-  // --------------------------------------------------------------------------
-  // 5. RENDERIZAÇÃO DO CATÁLOGO DE PROJETOS (ESTILO EXATO DO PRINT ANEXADO)
-  // --------------------------------------------------------------------------
-  const worksGrid = document.getElementById('glinto-works-grid');
-  const filterBtns = document.querySelectorAll('[data-work-filter]');
-
-  function renderWorksGrid(filter = 'all') {
-    if (!worksGrid) return;
-    const items =
-      filter === 'all'
-        ? PROJECTS_LIST
-        : PROJECTS_LIST.filter((p) => p.categoryFilter === filter);
-
-    worksGrid.innerHTML = items
-      .map(
-        (p) => `
-        <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="glinto-work-card" data-cursor="ABRIR">
-          <div class="glinto-work-thumb">
-            <span class="glinto-work-badge">${p.badge}</span>
-            <img src="${p.image}" alt="${p.title}" width="520" height="325" loading="lazy">
-          </div>
-          <div class="glinto-work-meta">
-            <span>categoria <strong>${p.categoriaLabel}</strong></span>
-            <span>tipo de projeto <strong>${p.tipoProjeto}</strong></span>
-          </div>
-          <h2 class="glinto-work-name">${p.title}</h2>
-          <div class="glinto-work-date">${p.date}</div>
-        </a>
-      `
-      )
-      .join('');
-
-    bindCursorHoverEvents();
-  }
-
-  filterBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderWorksGrid(btn.getAttribute('data-work-filter'));
-    });
-  });
-
-  renderWorksGrid('all');
-
-  // --------------------------------------------------------------------------
-  // 6. CURSOR MAGNÉTICO (MANTIDO COMO PEDIDO)
+  // 4. CURSOR MAGNÉTICO (MANTIDO COMO PEDIDO)
   // --------------------------------------------------------------------------
   const cursorDot = document.getElementById('cursor-dot');
   const cursorRing = document.getElementById('cursor-ring');
@@ -358,4 +335,12 @@
       toast.classList.remove('show');
     }, 2200);
   }
+
+  window.__PF = {
+    PROJECTS_LIST,
+    switchTab: switchSiteTab,
+    bindCursor: bindCursorHoverEvents,
+    getLenis: () => lenis,
+    showToast
+  };
 })();

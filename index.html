@@ -14,7 +14,30 @@
 
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="is-loading">
+
+  <!-- ====================================================================
+       PRELOADER SPLIT-CURTAIN (ESTILO AWWWARDS × MONARCH)
+       ==================================================================== -->
+  <div class="aw-preloader" id="aw-preloader" aria-hidden="true">
+    <div class="aw-pre-panel aw-pre-top"></div>
+    <div class="aw-pre-panel aw-pre-bottom"></div>
+
+    <div class="aw-pre-center">
+      <div class="aw-pre-kicker">CREATIVE DEVELOPER · PORTFOLIO 2026</div>
+      <div class="aw-pre-word" aria-label="Matheus Felipe">
+        <span>M</span><span>A</span><span>T</span><span>H</span><span>E</span><span>U</span><span>S</span><span class="gap">&nbsp;</span><span>F</span><span>E</span><span>L</span><span>I</span><span>P</span><span>E</span>
+      </div>
+      <div class="aw-pre-track"><i id="aw-pre-bar"></i></div>
+      <div class="aw-pre-foot">
+        <span>CARREGANDO EXPERIÊNCIA</span>
+        <span class="aw-pre-num"><b id="aw-pre-count">000</b><em>%</em></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra fina de progresso do scroll no topo (igual Monarch) -->
+  <div class="aw-scroll-progress" aria-hidden="true"><i id="aw-scroll-progress"></i></div>
 
   <!-- ====================================================================
        CUSTOM MAGNETIC CURSOR (MANTIDO COMO PEDIDO)
@@ -69,51 +92,10 @@
             </p>
           </div>
 
-          <!-- Center Sculptural Topographic Visual (Code Makers Red Contours) -->
-          <div class="cm-hero-centerpiece" aria-hidden="true">
-            <div class="cm-sphere-glow"></div>
-            <svg class="cm-topo-sculpture" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="cmLineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
-                  <stop offset="35%" stop-color="#ff3b4e" stop-opacity="0.9"/>
-                  <stop offset="80%" stop-color="#b91c1c" stop-opacity="0.35"/>
-                  <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
-                </linearGradient>
-                <radialGradient id="cmCoreGlow" cx="42%" cy="48%" r="52%">
-                  <stop offset="0%" stop-color="#ff2a42" stop-opacity="0.75"/>
-                  <stop offset="55%" stop-color="#991b1b" stop-opacity="0.35"/>
-                  <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
-                </radialGradient>
-                <clipPath id="sphereClip">
-                  <circle cx="210" cy="210" r="168"/>
-                </clipPath>
-              </defs>
-              <circle cx="210" cy="210" r="168" fill="#090305"/>
-              <circle cx="210" cy="210" r="168" fill="url(#cmCoreGlow)"/>
-              <g clip-path="url(#sphereClip)" stroke="url(#cmLineGrad)" stroke-width="1.6">
-                <path d="M20 270 C110 210, 210 190, 410 250"/>
-                <path d="M20 256 C115 196, 215 178, 410 238"/>
-                <path d="M20 242 C120 182, 220 166, 410 226"/>
-                <path d="M20 228 C125 168, 225 154, 410 214" stroke-width="2.4"/>
-                <path d="M20 214 C130 154, 230 142, 410 202" stroke-width="2.8"/>
-                <path d="M20 200 C135 140, 235 130, 410 190"/>
-                <path d="M20 186 C140 126, 240 118, 410 178"/>
-                <path d="M20 172 C145 112, 245 106, 410 166"/>
-                <path d="M20 158 C150 98, 250 94, 410 154"/>
-                <path d="M20 144 C155 84, 255 82, 410 142"/>
-                <path d="M20 130 C160 70, 260 70, 410 130"/>
-                <path d="M20 116 C165 56, 265 58, 410 118"/>
-                <path d="M20 102 C170 42, 270 46, 410 106"/>
-                <path d="M20 284 C115 230, 215 210, 410 264"/>
-                <path d="M20 298 C120 250, 220 230, 410 278"/>
-                <path d="M20 312 C125 270, 225 250, 410 292"/>
-                <path d="M20 326 C130 290, 230 270, 410 306"/>
-                <ellipse cx="275" cy="115" rx="68" ry="38" transform="rotate(-18 275 115)" stroke-opacity="0.65"/>
-                <ellipse cx="275" cy="115" rx="46" ry="25" transform="rotate(-18 275 115)" stroke-opacity="0.75"/>
-                <ellipse cx="275" cy="115" rx="24" ry="13" transform="rotate(-18 275 115)" stroke-opacity="0.85"/>
-              </g>
-            </svg>
+          <!-- Center Interactive Liquid Water Sphere (WebGL Shader) -->
+          <div class="cm-hero-centerpiece">
+            <div class="cm-sphere-glow" aria-hidden="true"></div>
+            <canvas class="cm-orb" id="water-orb" width="420" height="420" data-cursor="ONDAS" aria-label="Esfera de água interativa"></canvas>
           </div>
 
           <!-- Right Floating Glass Card (Code Makers positioning) -->
@@ -215,370 +197,633 @@
       </div>
 
       <!-- ================================================================
-           GLINTO INFO SECTION — INFORMAÇÕES NO MEIO E FOTOS AO LADO
-           Alinhado em 3 colunas retas e com animações fluidas de entrada/hover
+           AWWARDS SECTIONS — Manifesto · Capacidades · Projetos (scroll
+           horizontal fixo) · Chamada final
            ================================================================ -->
-      <section class="glinto-scroll-showcase" id="glinto-scroll">
-        <div class="glinto-scroll-wrapper">
 
-          <!-- Top Bar of Section (Aligned Left & Right, No Float / No Overlap) -->
-          <div class="glinto-section-topbar" data-animate-topbar>
-            <span class="glinto-side-hint">explorar <span class="hint-arrow">↓</span></span>
-            <button type="button" class="glinto-view-all-btn" data-open-tab="projetos" data-cursor="PROJETOS">
-              ver todos os projetos →
-            </button>
+      <!-- 1. MANIFESTO (palavras acendem conforme o scroll) -->
+      <section class="aw-manifesto" id="aw-manifesto">
+        <div class="aw-wrap">
+          <span class="aw-kicker aw-reveal">( Sobre o trabalho )</span>
+          <p class="aw-manifesto-text" id="aw-manifesto-text">
+            Crio <em>sites</em>, <em>sistemas</em> e <em>automações</em> que unem engenharia sólida e design limpo. Do primeiro rascunho ao deploy, cada detalhe é pensado para funcionar bem e parecer simples.
+          </p>
+          <button type="button" class="aw-link aw-reveal" data-open-tab="sobre" data-cursor="SOBRE">
+            <span>Conhecer mais</span><span class="aw-link-arrow">→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 2. CAPACIDADES (lista gigante com preview que segue o mouse) -->
+      <section class="aw-caps" id="aw-caps">
+        <div class="aw-wrap">
+          <div class="aw-head aw-reveal">
+            <span class="aw-kicker">( Capacidades )</span>
+            <span class="aw-count">04</span>
           </div>
 
-          <!-- 3 LINHAS ALINHADAS E ANIMADAS: [FOTO ESQUERDA] — [INFORMAÇÃO NO MEIO] — [FOTO DIREITA] -->
-          <div class="glinto-rows-list">
+          <ul class="aw-caps-list" id="aw-caps-list">
+            <li class="aw-reveal">
+              <button type="button" class="aw-cap" data-open-tab="servicos" data-cursor="ABRIR" data-preview="assets/nexa.jpg">
+                <span class="aw-cap-num">01</span>
+                <span class="aw-cap-title"><span>Engenharia</span></span>
+                <span class="aw-cap-tags">Web · Sistemas · APIs</span>
+                <span class="aw-cap-arrow">↗</span>
+              </button>
+            </li>
+            <li class="aw-reveal" style="--d: 0.08s">
+              <button type="button" class="aw-cap" data-open-tab="servicos" data-cursor="ABRIR" data-preview="assets/anl-engenharia.jpg">
+                <span class="aw-cap-num">02</span>
+                <span class="aw-cap-title"><span>Linguagens</span></span>
+                <span class="aw-cap-tags">Python · JavaScript · HTML &amp; CSS</span>
+                <span class="aw-cap-arrow">↗</span>
+              </button>
+            </li>
+            <li class="aw-reveal" style="--d: 0.16s">
+              <button type="button" class="aw-cap" data-open-tab="servicos" data-cursor="ABRIR" data-preview="assets/monarch.jpg">
+                <span class="aw-cap-num">03</span>
+                <span class="aw-cap-title"><span>Design</span></span>
+                <span class="aw-cap-tags">UI / UX · Identidade · Responsivo</span>
+                <span class="aw-cap-arrow">↗</span>
+              </button>
+            </li>
+            <li class="aw-reveal" style="--d: 0.24s">
+              <button type="button" class="aw-cap" data-open-tab="servicos" data-cursor="ABRIR" data-preview="assets/prospectly.png">
+                <span class="aw-cap-num">04</span>
+                <span class="aw-cap-title"><span>Automação</span></span>
+                <span class="aw-cap-tags">Bots · Scripts · Integrações</span>
+                <span class="aw-cap-arrow">↗</span>
+              </button>
+            </li>
+          </ul>
+        </div>
 
-            <!-- Linha 0: Engenharia -->
-            <div class="glinto-info-row" id="glinto-row-0" data-scroll-step="0">
-              <article class="glinto-side-photo anim-left" data-open-tab="projetos" data-cursor="VER">
-                <div class="glinto-photo-thumb">
-                  <div class="glinto-photo-tag">{ Nexa }</div>
-                  <img src="assets/nexa.jpg" alt="Projeto Nexa Web" width="420" height="280">
-                </div>
-                <div class="glinto-photo-caption">
-                  <span>Nexa Web — Telecom &amp; Sistemas</span>
-                  <span class="caption-arrow">↗</span>
-                </div>
-              </article>
+        <!-- Preview flutuante que segue o cursor -->
+        <div class="aw-preview" id="aw-preview" aria-hidden="true">
+          <div class="aw-preview-inner" id="aw-preview-inner"></div>
+        </div>
+      </section>
 
-              <div class="glinto-center-info">
-                <span class="glinto-step-sub anim-fade" style="--d: 0.05s">Build it</span>
-                <h2 class="glinto-step-title">
-                  <span class="mask-word"><span style="--d: 0.1s">Engenharia</span></span>
-                </h2>
-                <ul class="glinto-step-list">
-                  <li style="--d: 0.18s">Desenvolvimento Web</li>
-                  <li style="--d: 0.24s">Aplicações &amp; Sistemas</li>
-                  <li style="--d: 0.30s">Integrações &amp; APIs</li>
-                  <li style="--d: 0.36s">Manutenção &amp; Escala</li>
-                </ul>
-                <p class="glinto-step-desc anim-fade" style="--d: 0.42s">
-                  Construímos a estrutura completa do seu projeto com foco em estabilidade, organização de código e facilidade de uso em qualquer tela.
-                </p>
-              </div>
-
-              <article class="glinto-side-photo anim-right" data-open-tab="projetos" data-cursor="VER">
-                <div class="glinto-photo-thumb">
-                  <div class="glinto-photo-tag">{ ANL }</div>
-                  <img src="assets/anl-engenharia.jpg" alt="Projeto ANL Engenharia" width="420" height="280">
-                </div>
-                <div class="glinto-photo-caption">
-                  <span>ANL Engenharia &amp; Consultoria</span>
-                  <span class="caption-arrow">↗</span>
-                </div>
-              </article>
+      <!-- 3. PROJETOS SELECIONADOS (Estágio 3D Interativo + Índice Cinético) -->
+      <section class="aw-works" id="aw-works">
+        <div class="aw-wrap">
+          <div class="aw-works-head">
+            <span class="aw-kicker">( Projetos selecionados )</span>
+            <div class="aw-works-head-right">
+              <span class="aw-works-counter"><b id="aw-works-cur">01</b><i>/</i><span id="aw-works-total">05</span></span>
+              <button type="button" class="aw-works-all-pill" data-open-tab="projetos" data-cursor="ARQUIVO">
+                Catálogo completo <span>↗</span>
+              </button>
             </div>
-
-            <!-- Linha 1: Linguagens -->
-            <div class="glinto-info-row" id="glinto-row-1" data-scroll-step="1">
-              <article class="glinto-side-photo anim-left" data-open-tab="servicos" data-cursor="STACK">
-                <div class="glinto-photo-thumb">
-                  <div class="glinto-photo-tag">{ Python &amp; JS }</div>
-                  <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80" alt="Código Python e JavaScript" width="420" height="280">
-                </div>
-                <div class="glinto-photo-caption">
-                  <span>Código Limpo &amp; Automação</span>
-                  <span class="caption-arrow">↗</span>
-                </div>
-              </article>
-
-              <div class="glinto-center-info">
-                <span class="glinto-step-sub anim-fade" style="--d: 0.05s">Code it</span>
-                <h2 class="glinto-step-title">
-                  <span class="mask-word"><span style="--d: 0.1s">Linguagens</span></span>
-                </h2>
-                <ul class="glinto-step-list">
-                  <li style="--d: 0.18s">JavaScript &amp; TypeScript</li>
-                  <li style="--d: 0.24s">Python &amp; Automação</li>
-                  <li style="--d: 0.30s">HTML5 &amp; CSS3</li>
-                  <li style="--d: 0.36s">React &amp; Node.js</li>
-                </ul>
-                <p class="glinto-step-desc anim-fade" style="--d: 0.42s">
-                  Domínio das principais tecnologias modernas para criar desde páginas rápidas até sistemas personalizados e scripts automatizados.
-                </p>
-              </div>
-
-              <article class="glinto-side-photo anim-right" data-open-tab="servicos" data-cursor="STACK">
-                <div class="glinto-photo-thumb">
-                  <div class="glinto-photo-tag">{ Full-Stack }</div>
-                  <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80" alt="Desenvolvimento Web" width="420" height="280">
-                </div>
-                <div class="glinto-photo-caption">
-                  <span>Estrutura HTML, CSS &amp; React</span>
-                  <span class="caption-arrow">↗</span>
-                </div>
-              </article>
-            </div>
-
-            <!-- Linha 2: Design -->
-            <div class="glinto-info-row" id="glinto-row-2" data-scroll-step="2">
-              <article class="glinto-side-photo anim-left" data-open-tab="projetos" data-cursor="DESIGN">
-                <div class="glinto-photo-thumb">
-                  <div class="glinto-photo-tag">{ Monarch }</div>
-                  <img src="assets/monarch.jpg" alt="Projeto Monarch Superyachts" width="420" height="280">
-                </div>
-                <div class="glinto-photo-caption">
-                  <span>Monarch — Coleção Náutica</span>
-                  <span class="caption-arrow">↗</span>
-                </div>
-              </article>
-
-              <div class="glinto-center-info">
-                <span class="glinto-step-sub anim-fade" style="--d: 0.05s">Dress it</span>
-                <h2 class="glinto-step-title">
-                  <span class="mask-word"><span style="--d: 0.1s">Design</span></span>
-                </h2>
-                <ul class="glinto-step-list">
-                  <li style="--d: 0.18s">UI / UX Design</li>
-                  <li style="--d: 0.24s">Identidade Visual</li>
-                  <li style="--d: 0.30s">Layouts Responsivos</li>
-                  <li style="--d: 0.36s">Prototipação Limpa</li>
-                </ul>
-                <p class="glinto-step-desc anim-fade" style="--d: 0.42s">
-                  Interfaces minimalistas, diretas e sem excesso de informação, desenhadas para valorizar a marca e facilitar a navegação.
-                </p>
-              </div>
-
-              <article class="glinto-side-photo anim-right" data-open-tab="projetos" data-cursor="VER">
-                <div class="glinto-photo-thumb">
-                  <div class="glinto-photo-tag">{ Vanice }</div>
-                  <img src="assets/vanice.png" alt="Projeto Vanice Estates" width="420" height="280">
-                </div>
-                <div class="glinto-photo-caption">
-                  <span>Vanice — Residências de Exceção</span>
-                  <span class="caption-arrow">↗</span>
-                </div>
-              </article>
-            </div>
-
           </div>
 
-          <!-- GLINTO BOTTOM FROSTED WATER BAR (FIXA NO FINAL DA SEÇÃO, SEM SOBREPOR) -->
-          <div class="glinto-bottom-bar">
-            <button type="button" class="glinto-bar-item is-active" data-jump-step="0">
-              <strong>Engenharia</strong>
-              <span>Build it</span>
-            </button>
-            <button type="button" class="glinto-bar-item" data-jump-step="1">
-              <strong>Linguagens</strong>
-              <span>Code it</span>
-            </button>
-            <button type="button" class="glinto-bar-item" data-jump-step="2">
-              <strong>Design</strong>
-              <span>Dress it</span>
-            </button>
-            <button type="button" class="glinto-bar-item" data-open-tab="projetos">
-              <strong>Projetos</strong>
-              <span>See works →</span>
+          <div class="aw-case-split">
+            <!-- Palco visual 3D sticky -->
+            <div class="aw-case-stage-col">
+              <div class="aw-case-stage" id="aw-case-stage" data-spotlight data-tilt>
+                <div class="aw-glare" aria-hidden="true"></div>
+                <div class="aw-case-stage-top">
+                  <span class="aw-case-badge" id="aw-stage-badge">Em Destaque</span>
+                  <span class="aw-case-year" id="aw-stage-year">2026</span>
+                </div>
+
+                <a class="aw-case-visual" id="aw-stage-link" href="#" target="_blank" rel="noopener noreferrer" data-cursor="VISITAR">
+                  <img id="aw-stage-img" src="assets/anl-engenharia.jpg" alt="Projeto em destaque" draggable="false" />
+                  <div class="aw-case-curtain" id="aw-stage-curtain" aria-hidden="true"></div>
+                </a>
+
+                <div class="aw-case-stage-body">
+                  <div class="aw-case-stage-meta">
+                    <span class="aw-case-cat" id="aw-stage-cat">Engenharia &amp; B2B</span>
+                    <div class="aw-case-stack" id="aw-stage-stack"></div>
+                  </div>
+                  <p class="aw-case-summary" id="aw-stage-summary"></p>
+                  <div class="aw-case-actions">
+                    <a class="aw-case-visit" id="aw-stage-cta" href="#" target="_blank" rel="noopener noreferrer" data-cursor="ABRIR">
+                      Visitar projeto ao vivo <span aria-hidden="true">↗</span>
+                    </a>
+                    <button type="button" class="aw-case-next" id="aw-stage-next" data-cursor="PRÓXIMO">
+                      Próximo caso <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Lista indexada interativa -->
+            <div class="aw-case-list" id="aw-case-list" role="listbox" aria-label="Selecionar projeto em destaque">
+              <!-- Preenchido dinamicamente por js/awwards.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. CHAMADA FINAL -->
+      <section class="aw-cta" id="aw-cta">
+        <div class="aw-wrap">
+          <span class="aw-kicker aw-reveal">( Contato )</span>
+
+          <h2 class="aw-cta-title aw-reveal" aria-label="Vamos criar algo incrível?">
+            <span class="aw-line"><span>Vamos criar</span></span>
+            <span class="aw-line"><span style="--d: 0.1s">algo <em>incrível</em>?</span></span>
+          </h2>
+
+          <div class="aw-cta-row aw-reveal" style="--d: 0.2s">
+            <a href="mailto:matheusfelipe16felipe@gmail.com" class="aw-cta-mail" data-cursor="ENVIAR">matheusfelipe16felipe@gmail.com</a>
+
+            <button type="button" class="aw-magnet" id="aw-magnet" data-open-tab="contato" data-cursor="FALAR">
+              <span class="aw-magnet-label">Falar<br>comigo</span>
             </button>
           </div>
-
         </div>
       </section>
 
     </div>
 
     <!-- ==================================================================
-         ABA 2: SOBRE (SEPARADA DENTRO DO SITE — ESTILO GLINTO /ABOUT)
+         ABA 2: SOBRE (EDITORIAL AWWWARDS — SEM CAIXAS, PURO MOVIMENTO E TIPO)
          ================================================================== -->
     <div class="tab-view" id="view-sobre" data-view="sobre" hidden>
-      <section class="glinto-page-section">
-        <div class="glinto-container-narrow">
-          <span class="glinto-kicker">Sobre</span>
-          <h1 class="glinto-page-title">
-            Estúdio digital para<br>
-            Identidade · Visual · e Código.
+      <section class="aw-subpage aw-sobre-page">
+        <div class="aw-wrap">
+          <div class="aw-ed-topbar aw-tab-reveal">
+            <span class="aw-kicker">( 01 · Sobre )</span>
+            <span class="aw-ed-mono">19°55'S 43°56'W · BELO HORIZONTE, BR</span>
+            <span class="aw-avail-pill"><span class="aw-avail-dot"></span>Disponível · 2026</span>
+          </div>
+
+          <h1 class="aw-ed-headline aw-tab-reveal">
+            Código autoral, <em>direção de arte</em> e movimento em uma única arquitetura.
           </h1>
-          <p class="glinto-page-lead">
-            Sou Matheus Felipe, desenvolvedor focado em criar sites, sistemas e interfaces limpas. Uno design minimalista e engenharia de software para entregar projetos rápidos, bem estruturados e diretos ao ponto.
-          </p>
 
-          <div class="glinto-about-columns">
-            <div class="glinto-about-col">
-              <span class="about-num">01</span>
-              <h3>Visão &amp; Clareza</h3>
-              <p>Sem excessos visuais ou elementos genéricos. Cada página é desenhada para transmitir confiança e facilitar a leitura do usuário.</p>
-            </div>
-
-            <div class="glinto-about-col">
-              <span class="about-num">02</span>
-              <h3>Código Autoral</h3>
-              <p>Desenvolvimento sólido utilizando Python, JavaScript, HTML e CSS, garantindo que o projeto funcione com fluidez tanto no computador quanto no celular.</p>
-            </div>
-
-            <div class="glinto-about-col">
-              <span class="about-num">03</span>
-              <h3>Entrega Direta</h3>
-              <p>Acompanhamento próximo do início à publicação, estruturando exatamente o que o seu negócio precisa para crescer no digital.</p>
+          <div class="aw-ed-bio-split aw-tab-reveal">
+            <p class="aw-ed-lead">
+              Sou Matheus Felipe, creative developer focado em transformar marcas e produtos digitais em experiências memoráveis. Uno engenharia enxuta, WebGL e tipografia expressiva para entregar sites que carregam rápido e permanecem na memória.
+            </p>
+            <div class="aw-ed-col-right">
+              <span class="aw-ed-mono-label">ESPECIALIDADES</span>
+              <p>Websites Autorais · WebGL &amp; Shaders · Design Systems · Sistemas SaaS Full-Stack</p>
             </div>
           </div>
 
-          <div class="glinto-page-cta-row">
-            <button type="button" class="glinto-pill-btn" data-open-tab="servicos">Ver linguagens e serviços →</button>
-            <button type="button" class="glinto-pill-btn secondary" data-open-tab="projetos">Explorar projetos →</button>
+          <!-- Odômetros arquitetônicos em hairline (estilo Monarch / Awwwards) -->
+          <div class="aw-ed-odometers aw-tab-reveal">
+            <div class="aw-odo-cell">
+              <span class="aw-odo-val" data-count="5" data-suffix="+">0</span>
+              <span class="aw-odo-lbl">Projetos reais em produção</span>
+            </div>
+            <div class="aw-odo-cell">
+              <span class="aw-odo-val" data-count="100" data-suffix="%">0</span>
+              <span class="aw-odo-lbl">Código autoral, zero templates</span>
+            </div>
+            <div class="aw-odo-cell">
+              <span class="aw-odo-val" data-count="60" data-suffix="fps">0</span>
+              <span class="aw-odo-lbl">Fluidez em shaders e scroll</span>
+            </div>
+            <div class="aw-odo-cell">
+              <span class="aw-odo-val" data-count="24" data-suffix="h">0</span>
+              <span class="aw-odo-lbl">Atendimento direto sem intermediários</span>
+            </div>
+          </div>
+
+          <!-- Manifesto 4 Atos em Accordion Editorial (sem cards) -->
+          <div class="aw-ed-section aw-tab-reveal">
+            <div class="aw-ed-sec-head">
+              <span class="aw-kicker">( Como cada obra nasce )</span>
+              <span class="aw-ed-mono">CLIQUE PARA EXPANDIR O ATO</span>
+            </div>
+
+            <div class="aw-ed-accordion" id="aw-sobre-accordion">
+              <div class="aw-ed-row is-open" data-acc-row>
+                <button type="button" class="aw-ed-trigger" aria-expanded="true" data-cursor="ATO 01">
+                  <span class="aw-ed-num">01</span>
+                  <span class="aw-ed-title">Imersão &amp; Arquitetura</span>
+                  <span class="aw-ed-meta">02 — 04 DIAS</span>
+                  <span class="aw-ed-plus" aria-hidden="true"></span>
+                </button>
+                <div class="aw-ed-panel">
+                  <div class="aw-ed-panel-inner">
+                    <p>Antes da primeira linha de código, estudo posicionamento, público e ritmo narrativo. Cada tela tem uma intenção clara: capturar atenção nos primeiros segundos e conduzir à conversão sem atrito.</p>
+                    <div class="aw-ed-specs">
+                      <span>[ Diagnóstico ]</span>
+                      <span>[ Roteiro Visual ]</span>
+                      <span>[ Arquitetura de Informação ]</span>
+                      <span>[ Curadoria de Referências ]</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="aw-ed-row" data-acc-row>
+                <button type="button" class="aw-ed-trigger" aria-expanded="false" data-cursor="ATO 02">
+                  <span class="aw-ed-num">02</span>
+                  <span class="aw-ed-title">Direção Visual &amp; Tipografia</span>
+                  <span class="aw-ed-meta">03 — 05 DIAS</span>
+                  <span class="aw-ed-plus" aria-hidden="true"></span>
+                </button>
+                <div class="aw-ed-panel">
+                  <div class="aw-ed-panel-inner">
+                    <p>Construo hierarquias tipográficas contrastantes, paletas escuras calibradas e respiros generosos para eliminar qualquer ruído genérico. Cada estado de hover e transição faz parte da linguagem da marca.</p>
+                    <div class="aw-ed-specs">
+                      <span>[ Escala Fluida ]</span>
+                      <span>[ Design Tokens ]</span>
+                      <span>[ Protótipos Interativos ]</span>
+                      <span>[ Responsive Grid ]</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="aw-ed-row" data-acc-row>
+                <button type="button" class="aw-ed-trigger" aria-expanded="false" data-cursor="ATO 03">
+                  <span class="aw-ed-num">03</span>
+                  <span class="aw-ed-title">Engenharia, Motion &amp; WebGL</span>
+                  <span class="aw-ed-meta">05 — 12 DIAS</span>
+                  <span class="aw-ed-plus" aria-hidden="true"></span>
+                </button>
+                <div class="aw-ed-panel">
+                  <div class="aw-ed-panel-inner">
+                    <p>Desenvolvimento front-end e back-end limpo: Lenis Smooth Scroll calibrado, shaders GLSL próprios, micro-interações magnéticas no cursor e APIs rápidas em TypeScript, React, Next.js ou Python.</p>
+                    <div class="aw-ed-specs">
+                      <span>[ Lenis 1.1.18 ]</span>
+                      <span>[ Shaders GLSL ]</span>
+                      <span>[ TypeScript &amp; React ]</span>
+                      <span>[ APIs Python / Node ]</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="aw-ed-row" data-acc-row>
+                <button type="button" class="aw-ed-trigger" aria-expanded="false" data-cursor="ATO 04">
+                  <span class="aw-ed-num">04</span>
+                  <span class="aw-ed-title">Performance &amp; Deploy Global</span>
+                  <span class="aw-ed-meta">01 — 03 DIAS</span>
+                  <span class="aw-ed-plus" aria-hidden="true"></span>
+                </button>
+                <div class="aw-ed-panel">
+                  <div class="aw-ed-panel-inner">
+                    <p>Validação completa em viewport desktop e mobile, otimização de assets e Core Web Vitals, SEO técnico estruturado e publicação contínua na Vercel com domínio configurado.</p>
+                    <div class="aw-ed-specs">
+                      <span>[ Core Web Vitals ]</span>
+                      <span>[ SEO &amp; Open Graph ]</span>
+                      <span>[ GitHub &amp; Vercel ]</span>
+                      <span>[ Suporte Direto ]</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Faixa tipográfica contínua de stack -->
+        <div class="aw-stack-marquee" aria-hidden="true">
+          <div class="aw-stack-track">
+            <span>JAVASCRIPT</span><i>·</i><span>TYPESCRIPT</span><i>·</i><span>WEBGL &amp; GLSL</span><i>·</i><span>LENIS 1.1.18</span><i>·</i><span>REACT &amp; NEXT.JS</span><i>·</i><span>PYTHON</span><i>·</i><span>SUPABASE</span><i>·</i><span>CSS3 &amp; MOTION</span><i>·</i>
+            <span>JAVASCRIPT</span><i>·</i><span>TYPESCRIPT</span><i>·</i><span>WEBGL &amp; GLSL</span><i>·</i><span>LENIS 1.1.18</span><i>·</i><span>REACT &amp; NEXT.JS</span><i>·</i><span>PYTHON</span><i>·</i><span>SUPABASE</span><i>·</i><span>CSS3 &amp; MOTION</span><i>·</i>
+          </div>
+        </div>
+
+        <div class="aw-wrap">
+          <div class="aw-ed-footer-band aw-tab-reveal">
+            <div>
+              <span class="aw-kicker">( Próximo passo )</span>
+              <h2>Pronto para construir algo fora do comum?</h2>
+            </div>
+            <div class="aw-ed-footer-btns">
+              <button type="button" class="aw-btn-primary" data-open-tab="servicos" data-cursor="SERVIÇOS">Explorar Disciplinas <span>→</span></button>
+              <button type="button" class="aw-btn-ghost" data-open-tab="contato" data-cursor="CONTATO">Conversar Agora <span>↗</span></button>
+            </div>
           </div>
         </div>
       </section>
     </div>
 
     <!-- ==================================================================
-         ABA 3: SERVIÇOS (SEPARADA — LINGUAGENS: PYTHON, JS, HTML, CSS ETC.)
+         ABA 3: SERVIÇOS (DISCIPLINAS 3D + SIMULADOR DE ESCOPO INTERATIVO)
          ================================================================== -->
     <div class="tab-view" id="view-servicos" data-view="servicos" hidden>
-      <section class="glinto-page-section">
-        <div class="glinto-container-narrow">
-          <span class="glinto-tag-box">serviços &amp; stack</span>
-          <h1 class="glinto-page-title">
-            Tudo o que seu projeto precisa,<br>
-            do front-end ao back-end.
+      <section class="aw-subpage aw-srv-page">
+        <div class="aw-wrap">
+          <div class="aw-ed-topbar aw-tab-reveal">
+            <span class="aw-kicker">( 02 · Serviços &amp; Disciplinas )</span>
+            <span class="aw-ed-mono">HOVER PARA PREVIEW · CLIQUE PARA DETALHES</span>
+            <span class="aw-avail-pill">Front-End · Motion · Full-Stack</span>
+          </div>
+
+          <h1 class="aw-ed-headline aw-tab-reveal">
+            Do <em>pixel cinemático</em> à arquitetura de servidor.
           </h1>
-          <p class="glinto-page-lead">
-            Desenvolvimento completo com domínio das principais linguagens do mercado para construir sites institucionais, landing pages, automações e aplicações web.
-          </p>
-        </div>
 
-        <div class="glinto-container">
-          <div class="glinto-services-grid">
+          <!-- Lista Acordeão Monumental com Preview Flutuante no Cursor -->
+          <div class="aw-srv-accordion aw-tab-reveal" id="aw-srv-accordion">
 
-            <!-- Python -->
-            <article class="glinto-service-card">
-              <div class="srv-top">
-                <span class="srv-sub">Back-End &amp; Automação</span>
-                <span class="srv-badge">{ Python }</span>
+            <div class="aw-srv-band is-open" data-srv-band data-preview="assets/monarch.jpg">
+              <button type="button" class="aw-srv-head" aria-expanded="true" data-cursor="EXPANDIR">
+                <span class="aw-sb-num">01</span>
+                <span class="aw-sb-title">Websites Autorais &amp; Motion</span>
+                <span class="aw-sb-tags">WEBGL · LENIS · EDITORIAL</span>
+                <span class="aw-sb-plus" aria-hidden="true"></span>
+              </button>
+              <div class="aw-srv-body">
+                <div class="aw-srv-body-inner">
+                  <p class="aw-sb-desc">
+                    Sites institucionais, lançamentos e portfólios com direção de arte autoral, tipografia de alto contraste, rolagem cinemática com Lenis e shaders WebGL executando a 60fps.
+                  </p>
+                  <div class="aw-sb-cols">
+                    <div>
+                      <span class="aw-ed-mono-label">ENTREGÁVEIS</span>
+                      <ul>
+                        <li>Direção visual &amp; motion design dedicado</li>
+                        <li>Shaders WebGL, Canvas interativo &amp; micro-interações</li>
+                        <li>Responsividade de precisão em mobile e 4K</li>
+                      </ul>
+                    </div>
+                    <div class="aw-sb-action-col">
+                      <span class="aw-ed-mono-label">REFERÊNCIA EM PRODUÇÃO</span>
+                      <p class="aw-sb-case">Monarch Superyachts &amp; Vanice Estates</p>
+                      <button type="button" class="aw-btn-primary small" data-start-service="Site Awwwards / 3D" data-cursor="INICIAR">
+                        Solicitar esta frente ↗
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h2>Python</h2>
-              <p>Desenvolvimento de scripts de automação, integração de APIs, processamento de dados e lógica de servidor rápida e confiável.</p>
-              <ul class="srv-list">
-                <li>Automação de processos e tarefas</li>
-                <li>APIs REST &amp; Back-end estruturado</li>
-                <li>Integração com bancos de dados</li>
-                <li>Bots e ferramentas personalizadas</li>
-              </ul>
-            </article>
+            </div>
 
-            <!-- JavaScript / TypeScript -->
-            <article class="glinto-service-card">
-              <div class="srv-top">
-                <span class="srv-sub">Interatividade &amp; Web Apps</span>
-                <span class="srv-badge">{ JavaScript }</span>
+            <div class="aw-srv-band" data-srv-band data-preview="assets/prospectly.png">
+              <button type="button" class="aw-srv-head" aria-expanded="false" data-cursor="EXPANDIR">
+                <span class="aw-sb-num">02</span>
+                <span class="aw-sb-title">Sistemas Web, SaaS &amp; Python</span>
+                <span class="aw-sb-tags">REACT · NEXT.JS · PYTHON · APIs</span>
+                <span class="aw-sb-plus" aria-hidden="true"></span>
+              </button>
+              <div class="aw-srv-body">
+                <div class="aw-srv-body-inner">
+                  <p class="aw-sb-desc">
+                    Plataformas completas, painéis administrativos, automações em Python e produtos SaaS pensados para escalar com código limpo, tipagem segura e resposta imediata na interface.
+                  </p>
+                  <div class="aw-sb-cols">
+                    <div>
+                      <span class="aw-ed-mono-label">ENTREGÁVEIS</span>
+                      <ul>
+                        <li>Front-end reativo com React, Next.js &amp; TypeScript</li>
+                        <li>Back-end REST, automações e scripts em Python / Node</li>
+                        <li>Autenticação, bancos relacionais e painéis ao vivo</li>
+                      </ul>
+                    </div>
+                    <div class="aw-sb-action-col">
+                      <span class="aw-ed-mono-label">REFERÊNCIA EM PRODUÇÃO</span>
+                      <p class="aw-sb-case">Prospectly SaaS &amp; Nexa Telecom</p>
+                      <button type="button" class="aw-btn-primary small" data-start-service="Sistema Web / SaaS" data-cursor="INICIAR">
+                        Solicitar esta frente ↗
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h2>JavaScript &amp; React</h2>
-              <p>Aplicações dinâmicas no navegador e no servidor. Interfaces reativas, animações suaves de rolagem e painéis completos.</p>
-              <ul class="srv-list">
-                <li>JavaScript (ES6+) &amp; TypeScript</li>
-                <li>React.js &amp; Next.js</li>
-                <li>Node.js para sistemas web</li>
-                <li>Consumo de APIs em tempo real</li>
-              </ul>
-            </article>
+            </div>
 
-            <!-- HTML5 & CSS3 -->
-            <article class="glinto-service-card">
-              <div class="srv-top">
-                <span class="srv-sub">Estrutura &amp; Estética</span>
-                <span class="srv-badge">{ HTML &amp; CSS }</span>
+            <div class="aw-srv-band" data-srv-band data-preview="assets/vanice.png">
+              <button type="button" class="aw-srv-head" aria-expanded="false" data-cursor="EXPANDIR">
+                <span class="aw-sb-num">03</span>
+                <span class="aw-sb-title">Direção de Arte &amp; UI Systems</span>
+                <span class="aw-sb-tags">INTERFACE · DESIGN SYSTEM · FIGMA</span>
+                <span class="aw-sb-plus" aria-hidden="true"></span>
+              </button>
+              <div class="aw-srv-body">
+                <div class="aw-srv-body-inner">
+                  <p class="aw-sb-desc">
+                    Redesign completo e construção de sistemas visuais consistentes para marcas que buscam autoridade imediata, leitura cirúrgica e identidade digital diferenciada.
+                  </p>
+                  <div class="aw-sb-cols">
+                    <div>
+                      <span class="aw-ed-mono-label">ENTREGÁVEIS</span>
+                      <ul>
+                        <li>Biblioteca de componentes &amp; tokens escaláveis</li>
+                        <li>Estados de foco, cursor personalizado &amp; feedback tátil</li>
+                        <li>Acessibilidade WCAG, contraste e HTML semântico</li>
+                      </ul>
+                    </div>
+                    <div class="aw-sb-action-col">
+                      <span class="aw-ed-mono-label">REFERÊNCIA EM PRODUÇÃO</span>
+                      <p class="aw-sb-case">ANL Engenharia &amp; Vanice</p>
+                      <button type="button" class="aw-btn-primary small" data-start-service="Redesign Completo" data-cursor="INICIAR">
+                        Solicitar esta frente ↗
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h2>HTML5 &amp; CSS3</h2>
-              <p>Construção visual fiel, semântica limpa para motores de busca (SEO) e layouts responsivos que se adaptam a qualquer tela.</p>
-              <ul class="srv-list">
-                <li>Arquitetura semântica e acessível</li>
-                <li>CSS3 moderno &amp; Tailwind CSS</li>
-                <li>Design responsivo (Mobile &amp; Desktop)</li>
-                <li>Transições fluidas e acabamento limpo</li>
-              </ul>
-            </article>
+            </div>
 
-            <!-- Banco de Dados & Infra -->
-            <article class="glinto-service-card">
-              <div class="srv-top">
-                <span class="srv-sub">Dados &amp; Publicação</span>
-                <span class="srv-badge">{ Sistemas }</span>
+            <div class="aw-srv-band" data-srv-band data-preview="assets/anl-engenharia.jpg">
+              <button type="button" class="aw-srv-head" aria-expanded="false" data-cursor="EXPANDIR">
+                <span class="aw-sb-num">04</span>
+                <span class="aw-sb-title">Performance, Dados &amp; Deploy</span>
+                <span class="aw-sb-tags">POSTGRES · SUPABASE · VERCEL</span>
+                <span class="aw-sb-plus" aria-hidden="true"></span>
+              </button>
+              <div class="aw-srv-body">
+                <div class="aw-srv-body-inner">
+                  <p class="aw-sb-desc">
+                    Da modelagem de dados à publicação final: configuração de Supabase/PostgreSQL, otimização extrema de Core Web Vitals, SEO técnico e pipelines contínuos na Vercel.
+                  </p>
+                  <div class="aw-sb-cols">
+                    <div>
+                      <span class="aw-ed-mono-label">ENTREGÁVEIS</span>
+                      <ul>
+                        <li>Supabase, PostgreSQL &amp; SQLite estruturados</li>
+                        <li>SEO técnico, schema markup e Open Graph</li>
+                        <li>Pipeline GitHub → Vercel com domínio &amp; SSL</li>
+                      </ul>
+                    </div>
+                    <div class="aw-sb-action-col">
+                      <span class="aw-ed-mono-label">REFERÊNCIA EM PRODUÇÃO</span>
+                      <p class="aw-sb-case">Todos os projetos em edge Vercel</p>
+                      <button type="button" class="aw-btn-primary small" data-start-service="Landing de Conversão" data-cursor="INICIAR">
+                        Solicitar esta frente ↗
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h2>Banco de Dados &amp; Deploy</h2>
-              <p>Configuração completa de hospedagem, domínio, banco de dados e autenticação para colocar seu projeto no ar com segurança.</p>
-              <ul class="srv-list">
-                <li>Supabase, PostgreSQL &amp; SQLite</li>
-                <li>Versionamento com Git &amp; GitHub</li>
-                <li>Publicação na Vercel &amp; Nuvem</li>
-                <li>Otimização de velocidade</li>
-              </ul>
-            </article>
+            </div>
 
+          </div>
+
+          <!-- Formatos de Contratação em Colunas Arquitetônicas (Zero Caixas) -->
+          <div class="aw-ed-section aw-tab-reveal">
+            <div class="aw-ed-sec-head">
+              <span class="aw-kicker">( Formatos de entrega )</span>
+              <span class="aw-ed-mono">ESCOPO TRANSPARENTE</span>
+            </div>
+
+            <div class="aw-engage-grid">
+              <div class="aw-engage-col">
+                <span class="aw-ed-mono-label">01 · SPRINT FOCADO</span>
+                <h3>Flagship &amp; Landing</h3>
+                <p>Site institucional ou página de lançamento com identidade única, animações suaves e entrega rápida.</p>
+                <span class="aw-engage-time">1 — 2 semanas</span>
+              </div>
+              <div class="aw-engage-col">
+                <span class="aw-ed-mono-label">02 · PROJETO COMPLETO</span>
+                <h3>Produto Web &amp; SaaS</h3>
+                <p>Design de interface, front-end reativo, API em Python/Node, banco de dados e publicação ponta a ponta.</p>
+                <span class="aw-engage-time">3 — 5 semanas</span>
+              </div>
+              <div class="aw-engage-col">
+                <span class="aw-ed-mono-label">03 · EVOLUÇÃO CONTÍNUA</span>
+                <h3>Parceria &amp; Redesign</h3>
+                <p>Atualização visual, novas funcionalidades, otimização de velocidade e evolução recorrente do seu produto.</p>
+                <span class="aw-engage-time">Sob demanda</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </div>
 
     <!-- ==================================================================
-         ABA 4: PROJETOS (SEPARADA — SEGUINDO A IMAGEM ANEXADA DA GLINTO,
-         MAIS COMPACTA, LIMPA E SEM IFRAMES AO VIVO)
+         ABA 4: PROJETOS (ARQUIVO INTERATIVO COM GRADE 3D + MODO ÍNDICE)
          ================================================================== -->
     <div class="tab-view" id="view-projetos" data-view="projetos" hidden>
-      <section class="glinto-works-section">
-        <div class="glinto-works-container">
+      <section class="aw-subpage">
+        <div class="aw-wrap">
+          <div class="aw-subhead aw-tab-reveal">
+            <div class="aw-subhead-meta">
+              <span class="aw-kicker">( 03 · Arquivo completo )</span>
+              <span class="aw-avail-pill" id="aw-proj-count-pill">05 projetos em produção</span>
+            </div>
+            <h1 class="aw-display-title">
+              Trabalhos selecionados em <em>produção</em>.
+            </h1>
+          </div>
 
-          <!-- Top Works Header & Filter (Exact Glinto /works layout) -->
-          <div class="glinto-works-header">
-            <h1 class="glinto-works-title">Projetos</h1>
+          <div class="aw-proj-controls aw-tab-reveal">
+            <div class="aw-filter-bar" role="tablist" aria-label="Filtrar projetos por categoria">
+              <button type="button" class="aw-filter-pill is-active" data-work-filter="all">Todos</button>
+              <button type="button" class="aw-filter-pill" data-work-filter="web">Web &amp; Landing Pages</button>
+              <button type="button" class="aw-filter-pill" data-work-filter="sistemas">Sistemas &amp; SaaS</button>
+              <button type="button" class="aw-filter-pill" data-work-filter="design">Motion &amp; Marca</button>
+            </div>
 
-            <div class="glinto-works-filters" role="tablist" aria-label="Filtrar projetos por categoria">
-              <button type="button" class="glinto-filter-btn active" data-work-filter="all">Todos</button>
-              <button type="button" class="glinto-filter-btn" data-work-filter="web">Web &amp; Landing Pages</button>
-              <button type="button" class="glinto-filter-btn" data-work-filter="sistemas">Sistemas &amp; SaaS</button>
-              <button type="button" class="glinto-filter-btn" data-work-filter="design">Design &amp; Marca</button>
+            <div class="aw-view-toggle" role="group" aria-label="Modo de visualização">
+              <button type="button" class="aw-view-btn is-active" data-proj-view="grid" data-cursor="GRADE">Grade 3D</button>
+              <button type="button" class="aw-view-btn" data-proj-view="index" data-cursor="ÍNDICE">Lista Índice</button>
             </div>
           </div>
 
-          <!-- 2-COLUMN CLEAN GLINTO GRID (EXACTLY LIKE ATTACHED IMAGE, SMALLER & CLEAN) -->
-          <div class="glinto-works-grid" id="glinto-works-grid">
-            <!-- Populated by PROJECTS_LIST in js/app.js so adding/replacing projects is instant -->
-          </div>
-
+          <!-- Renderizado dinamicamente por js/awwards.js -->
+          <div class="aw-proj-stage" id="glinto-works-grid"></div>
         </div>
       </section>
     </div>
 
     <!-- ==================================================================
-         ABA 5: CONTATO (SEPARADA — EMAIL: matheusfelipe16felipe@gmail.com)
+         ABA 5: CONTATO (CANAIS DIRETOS + CONSTRUTOR DE BRIEFING AO VIVO)
          ================================================================== -->
     <div class="tab-view" id="view-contato" data-view="contato" hidden>
-      <section class="glinto-page-section">
-        <div class="glinto-container-narrow">
-          <span class="glinto-kicker">Contato</span>
-          <h1 class="glinto-page-title">
-            Vamos conversar sobre<br>
-            o seu próximo projeto.
-          </h1>
-          <p class="glinto-page-lead">
-            Entre em contato diretamente por e-mail ou WhatsApp para orçamentos, parcerias ou dúvidas técnicas.
-          </p>
+      <section class="aw-subpage">
+        <div class="aw-wrap">
+          <div class="aw-subhead aw-tab-reveal">
+            <div class="aw-subhead-meta">
+              <span class="aw-kicker">( 04 · Contato direto )</span>
+              <span class="aw-avail-pill"><span class="aw-avail-dot"></span>Agenda aberta · Resposta em até 24h</span>
+            </div>
+            <h1 class="aw-display-title">
+              Vamos tirar sua próxima <em>ideia</em> do papel.
+            </h1>
+          </div>
 
-          <div class="glinto-contact-cards">
-            <!-- Email Card -->
-            <div class="glinto-contact-card">
-              <span class="contact-label">E-MAIL DIRETO</span>
-              <a href="mailto:matheusfelipe16felipe@gmail.com" class="contact-value" data-cursor="ENVIAR">
-                matheusfelipe16felipe@gmail.com
-              </a>
-              <div class="contact-card-actions">
-                <a href="mailto:matheusfelipe16felipe@gmail.com" class="glinto-small-btn">Abrir E-mail ↗</a>
-                <button type="button" class="glinto-small-btn ghost" id="btn-copy-email">Copiar E-mail</button>
+          <div class="aw-contact-split aw-tab-reveal">
+            <!-- Coluna esquerda: canais diretos -->
+            <div class="aw-contact-channels">
+              <article class="aw-channel-card" data-spotlight>
+                <div class="aw-glare" aria-hidden="true"></div>
+                <span class="contact-label">E-MAIL DIRETO</span>
+                <a href="mailto:matheusfelipe16felipe@gmail.com" class="contact-value" data-cursor="E-MAIL">
+                  matheusfelipe16felipe@gmail.com
+                </a>
+                <div class="contact-card-actions">
+                  <a href="mailto:matheusfelipe16felipe@gmail.com" class="aw-btn-primary small">Abrir E-mail ↗</a>
+                  <button type="button" class="aw-btn-ghost small" id="btn-copy-email">Copiar E-mail</button>
+                </div>
+              </article>
+
+              <article class="aw-channel-card" data-spotlight>
+                <div class="aw-glare" aria-hidden="true"></div>
+                <span class="contact-label">WHATSAPP DIRETO</span>
+                <a href="https://wa.me/5531971880711?text=Ol%C3%A1%20Matheus!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="contact-value" data-cursor="WHATSAPP">
+                  +55 (31) 97188-0711
+                </a>
+                <div class="contact-card-actions">
+                  <a href="https://wa.me/5531971880711?text=Ol%C3%A1%20Matheus!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="aw-btn-primary small">Chamar no WhatsApp ↗</a>
+                  <button type="button" class="aw-btn-ghost small" id="btn-copy-phone">Copiar Número</button>
+                </div>
+              </article>
+
+              <div class="aw-channel-note" data-spotlight>
+                <span class="contact-label">BASE &amp; ATENDIMENTO</span>
+                <p>Belo Horizonte, Minas Gerais · Atendimento remoto para todo o Brasil e exterior em PT-BR / EN.</p>
               </div>
             </div>
 
-            <!-- WhatsApp Card -->
-            <div class="glinto-contact-card">
-              <span class="contact-label">WHATSAPP</span>
-              <a href="https://wa.me/5531971880711?text=Ol%C3%A1%20Matheus!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="contact-value" data-cursor="WHATSAPP">
-                +55 (31) 97188-0711
-              </a>
-              <div class="contact-card-actions">
-                <a href="https://wa.me/5531971880711?text=Ol%C3%A1%20Matheus!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="glinto-small-btn">Chamar no WhatsApp ↗</a>
-                <button type="button" class="glinto-small-btn ghost" id="btn-copy-phone">Copiar Número</button>
+            <!-- Coluna direita: Construtor de Briefing Interativo -->
+            <div class="aw-brief-panel" data-spotlight>
+              <div class="aw-glare" aria-hidden="true"></div>
+              <div class="aw-brief-head">
+                <span class="aw-kicker">( Briefing rápido )</span>
+                <span class="aw-brief-status" id="aw-brief-status">Pronto para envio</span>
+              </div>
+              <h2 class="aw-brief-title">Configure sua mensagem em 15 segundos</h2>
+
+              <div class="aw-conf-group">
+                <span class="aw-conf-label">O que vamos construir?</span>
+                <div class="aw-conf-chips" id="aw-brief-types">
+                  <button type="button" class="aw-conf-chip is-selected" data-btype="Site Awwwards / 3D">Site Awwwards / 3D</button>
+                  <button type="button" class="aw-conf-chip" data-btype="Sistema Web / SaaS">Sistema Web / SaaS</button>
+                  <button type="button" class="aw-conf-chip" data-btype="Landing de Conversão">Landing de Conversão</button>
+                  <button type="button" class="aw-conf-chip" data-btype="Redesign Completo">Redesign Completo</button>
+                </div>
+              </div>
+
+              <div class="aw-conf-group">
+                <span class="aw-conf-label">Momento atual</span>
+                <div class="aw-conf-chips" id="aw-brief-stages">
+                  <button type="button" class="aw-conf-chip is-selected" data-bstage="Projeto do zero">Projeto do zero</button>
+                  <button type="button" class="aw-conf-chip" data-bstage="Redesign / Evolução">Redesign / Evolução</button>
+                  <button type="button" class="aw-conf-chip" data-bstage="Urgente (Sprint)">Urgente (Sprint)</button>
+                </div>
+              </div>
+
+              <div class="aw-brief-fields">
+                <label class="aw-field">
+                  <span>Seu nome ou empresa</span>
+                  <input type="text" id="aw-brief-name" placeholder="Ex.: Ana · Studio Horizon" autocomplete="name" />
+                </label>
+                <label class="aw-field">
+                  <span>Resumo ou link de referência (opcional)</span>
+                  <textarea id="aw-brief-note" rows="3" placeholder="Conte brevemente o objetivo do projeto, prazo ou referências..."></textarea>
+                </label>
+              </div>
+
+              <div class="aw-brief-preview-box">
+                <span class="aw-conf-label">Prévia da mensagem gerada</span>
+                <p id="aw-brief-preview"></p>
+              </div>
+
+              <div class="aw-brief-actions">
+                <a id="aw-brief-wa" class="aw-btn-primary" href="#" target="_blank" rel="noopener noreferrer" data-cursor="WHATSAPP">
+                  Enviar no WhatsApp ↗
+                </a>
+                <a id="aw-brief-mail" class="aw-btn-ghost" href="#" data-cursor="E-MAIL">
+                  Enviar por E-mail ↗
+                </a>
+                <button type="button" class="aw-btn-ghost" id="aw-brief-copy" data-cursor="COPIAR">
+                  Copiar texto
+                </button>
               </div>
             </div>
           </div>
@@ -610,8 +855,9 @@
   <!-- Subtle Toast -->
   <div class="water-toast" id="water-toast" role="status" aria-live="polite"></div>
 
-  <!-- Scripts: Lenis Smooth Scroll + App -->
+  <!-- Scripts: Lenis Smooth Scroll + App + Awwwards Interactive Layer -->
   <script src="js/lenis.min.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/awwards.js"></script>
 </body>
 </html>
