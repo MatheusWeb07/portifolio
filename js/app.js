@@ -13,6 +13,21 @@
   // --------------------------------------------------------------------------
   const PROJECTS_LIST = [
     {
+      id: 'ma-engenharia',
+      title: 'MA Engenharia',
+      categoryFilter: 'web',
+      categories: ['web', 'design'],
+      categoriaLabel: 'Engenharia Elétrica & Automação',
+      tipoProjeto: 'Website Corporativo & Laudos Técnicos',
+      summary: 'Portal escuro de alto padrão para engenharia elétrica, controle e automação com rigor normativo, navegação flutuante e fluxo direto para orçamentos.',
+      stack: ['HTML5', 'CSS3', 'JavaScript', 'UI Design'],
+      badge: '{ Em Destaque }',
+      year: '2026',
+      date: '2026 / Concluído',
+      image: 'assets/ma-engenharia.jpg',
+      url: 'https://maengenharia-rho.vercel.app/'
+    },
+    {
       id: 'anl-engenharia',
       title: 'ANL Engenharia',
       categoryFilter: 'web',
